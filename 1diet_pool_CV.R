@@ -17,13 +17,13 @@ save(df,file = "pool_merge.Rdata")
 
 load("pool_merge.Rdata")
 
-#没有这一步会报错，可能是"tidyverse"的问题？
+
 pool<-as.data.frame(df)
 
 rownames(pool)=pool[,1]
 pool<-pool[,-1]
 
-#可省略：去除异常行"Q5T0Z8"
+#去除异常行"Q5T0Z8"
 options(max.print=1000000)
 pool<-pool[-grep("Q5T0Z8",rownames(pool)),]
 
